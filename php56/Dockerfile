@@ -8,7 +8,7 @@ RUN groupadd --system www
 RUN useradd --system --home-dir /var/www -g www --shell /sbin/nologin www
 
 RUN yum update -y
-RUN yum install -y curl wget bsdtar3 htop yum-utils
+RUN yum install -y curl wget bsdtar3 htop yum-utils p7zip
 RUN yum install -y https://cdn.centos.no/remi/enterprise/remi-release-7.rpm
 RUN curl --silent https://openresty.org/package/centos/openresty.repo -o /etc/yum.repos.d/openresty.repo
 
@@ -27,7 +27,11 @@ RUN yum install -y \
         php56-php-mcrypt \
         php56-php-mssql \
         php56-php-odbc \
+        php56-php-pecl-crypto \
+        php56-php-pecl-jsonc \
+        php56-php-pecl-jsond \
         php56-php-pecl-redis \
+        php56-php-pecl-uuid \
         php56-php-xml \
         php56-php-xmlrpc \
         openresty openresty-openssl openresty-pcre openresty-zlib
